@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <form id="churrascoForm" action="">
+        <label for="">Data</label>
+        <input id="data" type="date" required>
+        <br>
+        <label for="">Quantidade de Homens</label>
+        <input id="qtdHomens" type="number" required>
+        <br>
+        <label for="">Quantidade de Mulheres</label>
+        <input id="qtdMulheres" type="number" required>
+        <br>
+        <label for="">Quantidade de Crianças</label>
+        <input id="qtdCriancas" type="number" required>
+        <br>
+        <input onclick="adicionarChurrasco()" id="botaoEnviar" type="submit" value="Enviar" >
+    </form>
+    <table id="churrascoTable">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Quantidade de pessoas</th>
+                <th>Carne(KG)</th>
+                <th>Pão de Alho</th>
+                <th>Carvão</th>
+                <th>Refrigerante</th>
+                <th>Cerveja</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            
+        </tbody>
+    </table>
+    
+</body>
+</html>
