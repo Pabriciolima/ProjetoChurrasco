@@ -1,18 +1,25 @@
+let proximoId = 1;
 buscarDados();
-function adicionarChurrasco(event){
+function adicionarChurrasco(){
+    let data = document.getElementById("data").value;
     let qtdHomens = parseInt(document.getElementById("qtdHomens").value);
     let qtdMulheres = parseInt(document.getElementById("qtdMulheres").value);
     let qtdCriancas = parseInt(document.getElementById("qtdCriancas").value);
-    let qtdPessoas = qtdHomens +  qtdMulheres + qtdCriancas;
+    let qtdPessoas = qtdCriancas + qtdMulheres + qtdHomens;
     let carnes = (qtdHomens * 0.4) + (qtdMulheres * 0.32) + (qtdCriancas * 0.2);
     let paoDeAlho = (qtdHomens + qtdMulheres) * 2 + qtdCriancas;
-    let carvao = qtdPessoas; 
-    let refrigerantes = qtdPessoas / 5;
+    let carvao = qtdHomens + qtdMulheres + qtdCriancas; 
+    let refrigerantes = carvao / 5;
     let cerveja = (qtdHomens + qtdMulheres) * 3;
     console.log(qtdMulheres)
-
+    proximoId++;
+    let idAtual = `${proximoId}`;
     const novoRegistro = {
+        idAtual,
         data,
+        qtdHomens,
+        qtdMulheres,
+        qtdCriancas,
         qtdPessoas,
         carnes,
         paoDeAlho,
@@ -21,10 +28,8 @@ function adicionarChurrasco(event){
         cerveja
     };
 
-    adicionarRegistro(novoRegistro)
-    registrosExistente.push(novoRegistro);
-    localStorage.setItem('registros', JSON.stringify(registrosExistente));
-    event.preventDefault();
+    criarPost(novoRegistro);
+    proximoId++;
 }
     function adicionarRegistro(novoRegistro){
         const tbody = document.getElementById('tbody');
@@ -45,16 +50,11 @@ function adicionarChurrasco(event){
         celCarvao.innerText = novoRegistro.carvao;
         celRefrigerante.innerText = novoRegistro.refrigerantes;
         celCerveja.innerText = novoRegistro.cerveja;
-        celAcao.innerText = '<button onclick="editarRegistro()">Editar</button>' + 
+        celAcao.innerHTML = '<button onclick="editarRegistro()">Editar</button>' + 
                             '<button onclick="removerRegistro()">Remover</button>';
         // window.location.href = "index.html";
     }
 
-    function exibirRegistro(registros){
-        registros.forEach(element => {
-            adicionarRegistro(element)
-        });
-    }
     
    async function buscarDados(){
     const resp = await fetch("http://localhost:3000/churrasco")
@@ -64,7 +64,16 @@ function adicionarChurrasco(event){
     })
     }
 
-   // window.location.href = "index.html";
-//   /* const td = document.getElementById('td')
-//     td.innerHTML = `<td>${carnes}</td> <td>${paoDeAlho}</td><td>${carvao}</td> <td>${refrigerantes}</td> <td>${cerveja}</td>`*/
+   
 
+    async function criarPost(registro){
+        const response = await fetch("http://localhost:3000/churrasco", {
+            method: "POST",
+            body: JSON.stringify(registro),
+            
+        })
+    }
+
+    function obter(){
+
+    }
