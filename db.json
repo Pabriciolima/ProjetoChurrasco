@@ -321,6 +321,32 @@
       "carvao": 108,
       "refrigerantes": 21.6,
       "cerveja": 285
+    },
+    {
+      "id": 1,
+      "data": "2024-01-19",
+      "qtdHomens": 45,
+      "qtdMulheres": 13,
+      "qtdCriancas": 16,
+      "qtdPessoas": 74,
+      "carnes": 25.36,
+      "paoDeAlho": 132,
+      "carvao": 74,
+      "refrigerantes": 14.8,
+      "cerveja": 174
+    },
+    {
+      "id": 1,
+      "data": "2024-01-25",
+      "qtdHomens": 45,
+      "qtdMulheres": 49,
+      "qtdCriancas": 13,
+      "qtdPessoas": 107,
+      "carnes": 36.28,
+      "paoDeAlho": 201,
+      "carvao": 107,
+      "refrigerantes": 21.4,
+      "cerveja": 282
     }
   ]
 }

@@ -20,7 +20,7 @@
         <label for="">Quantidade de Crianças</label>
         <input id="qtdCriancas" type="number" required>
         <br>
-        <input onclick="adicionarChurrasco()" id="botaoEnviar" type="submit" value="Enviar" >
+        <input onclick="adicionarChurrasco(getNextId())" id="botaoEnviar" type="submit" value="Enviar" >
     </form>
     <table id="churrascoTable">
         <thead>
@@ -39,6 +39,12 @@
             
         </tbody>
     </table>
-    
+    <script>
+        let proximoId = 1;
+
+        function getNextId() {
+            return proximoId++;
+        }
+    </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
-let proximoId = 1;
+
 buscarDados();
-function adicionarChurrasco(){
+function adicionarChurrasco(id){
     let data = document.getElementById("data").value;
     let qtdHomens = parseInt(document.getElementById("qtdHomens").value);
     let qtdMulheres = parseInt(document.getElementById("qtdMulheres").value);
@@ -12,10 +12,9 @@ function adicionarChurrasco(){
     let refrigerantes = carvao / 5;
     let cerveja = (qtdHomens + qtdMulheres) * 3;
     console.log(qtdMulheres)
-    proximoId++;
-    let idAtual = `${proximoId}`;
+   
     const novoRegistro = {
-        idAtual,
+        id,
         data,
         qtdHomens,
         qtdMulheres,
@@ -29,7 +28,7 @@ function adicionarChurrasco(){
     };
 
     criarPost(novoRegistro);
-    proximoId++;
+   
 }
     function adicionarRegistro(novoRegistro){
         const tbody = document.getElementById('tbody');
